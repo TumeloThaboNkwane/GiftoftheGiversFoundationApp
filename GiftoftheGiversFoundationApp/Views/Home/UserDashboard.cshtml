@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "User Dashboard";
+}
+
+<h2>User Dashboard</h2>
+
+<!-- Profile Editing Section -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h3>Edit Profile</h3>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-action="UpdateProfile">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter your first name" required />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter your last name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter a new password" />
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+<!-- Links to Donation and Volunteer Views -->
+<div class="row">
+    <div class="col-md-6">
+        <a class="btn btn-success btn-block" asp-controller="Home" asp-action="Donation">Go to Donation Page</a>
+    </div>
+    <div class="col-md-6">
+        <a class="btn btn-info btn-block" asp-controller="Home" asp-action="Volunteer">Go to Volunteer Page</a>
+    </div>
+</div>
+
+<!-- Placeholder for New Features -->
+<div class="card mt-4">
+    <div class="card-header">
+        <h3>Upcoming Features</h3>
+    </div>
+    <div class="card-body">
+        <p>Stay tuned for new features such as event tracking and personalized dashboards.</p>
+    </div>
+</div>
+

@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/css/site.css"> <!-- Custom CSS -->
+<div class="container mt-5">
+    <center>
+    <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+        <img src="~/images/logo.png" alt="GiftoftheGiversFoundation" width="350" />
+    </a>
+    </center>
+    <h2 class="text-center">Admin Login</h2>
+    <form method="post" action="/Admin/Login">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+</div>
+
+

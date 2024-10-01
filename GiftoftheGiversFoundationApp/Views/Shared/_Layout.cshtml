@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GiftoftheGiversFoundationApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GiftoftheGiversFoundationApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GiftoftheGiversFoundationApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SubmitReport">Report Disaster</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Donation">Donations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Volunteer">Volunteers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Newsletter">News Letter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Events">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Dashboard">Admin Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ml-auto">
+                    <!-- Admin Icon -->
+                    <a href="/Admin/Login" class="btn btn-outline-dark">
+                        <i class="fas fa-user-shield"></i> Admin
+                    </a>
+                 </div>
+                
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="bg-dark text-white mt-5 pt-4 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Details -->
+                <div class="col-md-6">
+                    <h5>Contact Us</h5>
+                    <p>Email: <a href="mailto:info@giftofthegivers.org" class="text-white">info@giftofthegivers.org</a></p>
+                    <p>Phone: <a href="tel:+27123456789" class="text-white">+27 12 345 6789</a></p>
+                    <p>Call Center Locations:</p>
+                    <ul>
+                        <li>Pretoria: 1234 WF Nkomo Road</li>
+                        <li>Johannesburg: 5678 Mandela Avenue</li>
+                    </ul>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="col-md-6 text-center">
+                    <h5>Follow Us</h5>
+                    <a href="https://www.facebook.com" class="text-white" target="_blank" style="font-size: 24px; margin-right: 10px;">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.twitter.com" class="text-white" target="_blank" style="font-size: 24px; margin-right: 10px;">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com" class="text-white" target="_blank" style="font-size: 24px; margin-right: 10px;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com" class="text-white" target="_blank" style="font-size: 24px;">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p class="mb-0">© 2024 Gift of the Givers Foundation. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

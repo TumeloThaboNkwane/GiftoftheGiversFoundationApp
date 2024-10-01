@@ -1,0 +1,196 @@
+﻿@{
+    ViewData["Title"] = "Donate Resources";
+}
+
+@if (ViewBag.Message != null)
+{
+    <script>
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        }
+    </script>
+}
+<center>
+    <h2>Donate Resources</h2>
+    <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+        <img src="~/images/logo.png" alt="GiftoftheGiversFoundation" width="350" />
+    </a>
+</center>
+<form method="post" asp-action="Donate">
+    <!-- Donation Type -->
+    <div class="form-group">
+        <label for="donationType">Donation Type</label>
+        <select class="form-control" id="donationType" name="donationType" required onchange="toggleDonationFields()">
+            <option value="">Select a donation type</option>
+            <option value="Monetary">Monetary Donation</option>
+            <option value="Food">Food Supplies</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Medical">Medical Supplies</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+
+    <!-- Monetary Donation Amount -->
+    <div class="form-group" id="monetaryAmountField" style="display:none;">
+        <label for="monetaryAmount">Donation Amount (in ZAR)</label>
+        <input type="number" class="form-control" id="monetaryAmount" name="monetaryAmount" placeholder="Enter amount" min="10" />
+    </div>
+
+    <!-- Resource Type and Quantity (for non-monetary donations) -->
+    <div class="form-group" id="resourceFields" style="display:none;">
+        <label for="resourceType">Resource Type</label>
+        <select class="form-control" id="resourceType" name="resourceType">
+            <option value="Food">Food</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Medical Supplies">Medical Supplies</option>
+        </select>
+    </div>
+
+    <div class="form-group" id="quantityField" style="display:none;">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity" name="quantity" />
+    </div>
+
+    <!-- Province and City -->
+    <div class="form-group">
+        <label for="province">Select Province</label>
+        <select class="form-control" id="province" name="province" required onchange="updateCities()">
+            <option value="">Select a province</option>
+            <option value="Gauteng">Gauteng</option>
+            <option value="Western Cape">Western Cape</option>
+            <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+            <option value="Eastern Cape">Eastern Cape</option>
+            <option value="Free State">Free State</option>
+            <option value="Limpopo">Limpopo</option>
+            <option value="Mpumalanga">Mpumalanga</option>
+            <option value="North West">North West</option>
+            <option value="Northern Cape">Northern Cape</option>
+            <!-- Add more provinces as needed -->
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="city">Select City</label>
+        <select class="form-control" id="city" name="city" required>
+            <option value="">Select a city</option>
+        </select>
+    </div>
+
+    <!-- Additional Details -->
+    <div class="form-group">
+        <label for="description">Additional Details</label>
+        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Provide additional details about the donation"></textarea>
+    </div>
+
+    <!-- Recurring Donation -->
+    <div class="form-group">
+        <label for="recurringDonation">Would you like to make this a recurring donation?</label><br />
+        <input type="radio" id="recurringYes" name="recurringDonation" value="Yes" onclick="showRecurringOptions()"> Yes
+        <input type="radio" id="recurringNo" name="recurringDonation" value="No" checked onclick="hideRecurringOptions()"> No
+    </div>
+
+    <div class="form-group" id="recurringIntervalField" style="display:none;">
+        <label for="recurringInterval">How often?</label>
+        <select class="form-control" id="recurringInterval" name="recurringInterval">
+            <option value="monthly">Monthly</option>
+            <option value="quarterly">Quarterly</option>
+            <option value="yearly">Yearly</option>
+        </select>
+    </div>
+
+    <!-- Anonymous Donation -->
+    <div class="form-group">
+        <label for="anonymousDonation">Donate Anonymously?</label><br />
+        <input type="radio" id="anonymousYes" name="anonymousDonation" value="Yes"> Yes
+        <input type="radio" id="anonymousNo" name="anonymousDonation" value="No" checked> No
+    </div>
+
+    <!-- Payment Method (for monetary donations) -->
+    <div class="form-group" id="paymentMethods" style="display:none;">
+        <label for="paymentMethod">Select Payment Method</label>
+        <select class="form-control" id="paymentMethod" name="paymentMethod">
+            <option value="creditCard">Credit Card</option>
+            <option value="EFT">EFT (Electronic Funds Transfer)</option>
+            <option value="mobilePayment">Mobile Payment</option>
+        </select>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary mt-3">Submit Donation</button>
+</form>
+
+<script>
+    function toggleDonationFields() {
+        const donationType = document.getElementById("donationType").value;
+        const monetaryAmountField = document.getElementById("monetaryAmountField");
+        const resourceFields = document.getElementById("resourceFields");
+        const quantityField = document.getElementById("quantityField");
+        const paymentMethods = document.getElementById("paymentMethods");
+
+        if (donationType === "Monetary") {
+            monetaryAmountField.style.display = "block";
+            resourceFields.style.display = "none";
+            quantityField.style.display = "none";
+            paymentMethods.style.display = "block";
+        } else {
+            monetaryAmountField.style.display = "none";
+            resourceFields.style.display = "block";
+            quantityField.style.display = "block";
+            paymentMethods.style.display = "none";
+        }
+    }
+
+    function showRecurringOptions() {
+        document.getElementById("recurringIntervalField").style.display = "block";
+    }
+
+    function hideRecurringOptions() {
+        document.getElementById("recurringIntervalField").style.display = "none";
+    }
+
+    function updateCities() {
+        const province = document.getElementById("province").value;
+        const citySelect = document.getElementById("city");
+        citySelect.innerHTML = ""; // Clear existing options
+
+        let cities = [];
+
+        switch (province) {
+            case "Gauteng":
+                cities = ["Johannesburg", "Pretoria", "Ekurhuleni"];
+                break;
+            case "Western Cape":
+                cities = ["Cape Town", "Paarl", "George"];
+                break;
+            case "KwaZulu-Natal":
+                cities = ["Durban", "Pietermaritzburg", "Richards Bay"];
+                break;
+            case "Eastern Cape":
+                cities = ["Port Elizabeth", "East London", "Queenstown"];
+                break;
+            case "Free State":
+                cities = ["Bloemfontein", "Welkom", "Kroonstad"];
+                break;
+            case "Limpopo":
+                cities = ["Polokwane", "Tzaneen", "Makhado"];
+                break;
+            case "Mpumalanga":
+                cities = ["Nelspruit", "Piet Retief", "Witrivier"];
+                break;
+            case "North West":
+                cities = ["Mahikeng", "Klerksdorp", "Rustenburg"];
+                break;
+            case "Northern Cape":
+                cities = ["Kimberley", "Upington", "Kuruman"];
+                break;
+            default:
+                cities = [];
+            // Add more provinces and cities as needed
+        }
+
+        citySelect.innerHTML += '<option value="">Select a city</option>';
+        cities.forEach(city => {
+            citySelect.innerHTML += `<option value="${city}">${city}</option>`;
+        });
+    }
+</script>

@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Upcoming Events - Gift of the Givers";
+}
+
+<div class="container mt-5">
+    <h1 class="text-primary">Upcoming Events</h1>
+    <p>Stay updated with our latest disaster relief efforts, training seminars, and outreach programs.</p>
+
+    <div class="row">
+        <!-- Disaster Relief Event -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <img src="~/images/event1.jpg" class="card-img-top" alt="Disaster Relief">
+                <div class="card-body">
+                    <h5 class="card-title">Disaster Relief Operation - KwaZulu-Natal</h5>
+                    <p class="card-text">
+                        <strong>Date:</strong> October 15, 2024<br>
+                        <strong>Location:</strong> Durban, KwaZulu-Natal<br><br>
+                        Our team will be providing food, medical supplies, and temporary shelter to communities affected by the recent floods.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Training Seminar -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <img src="~/images/event2.jpg" class="card-img-top" alt="Training Seminar">
+                <div class="card-body">
+                    <h5 class="card-title">Emergency Response Training - Gauteng</h5>
+                    <p class="card-text">
+                        <strong>Date:</strong> November 3, 2024<br>
+                        <strong>Location:</strong> Johannesburg, Gauteng<br><br>
+                        Join our training seminar to learn essential skills for responding to emergencies, including first aid, search and rescue, and disaster management.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outreach Program -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <img src="~/images/disaster1.jpg" class="card-img-top" alt="Outreach Program">
+                <div class="card-body">
+                    <h5 class="card-title">Community Outreach Program - Western Cape</h5>
+                    <p class="card-text">
+                        <strong>Date:</strong> November 20, 2024<br>
+                        <strong>Location:</strong> Cape Town, Western Cape<br><br>
+                        We are organizing a community outreach program to provide essential healthcare services and distribute winter clothing to underprivileged families.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disaster Averted -->
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <img src="~/images/disaster2.jpg" class="card-img-top" alt="Disaster Averted">
+                <div class="card-body">
+                    <h5 class="card-title">Disaster Averted - Eastern Cape</h5>
+                    <p class="card-text">
+                        <strong>Date:</strong> September 15, 2024<br>
+                        <strong>Location:</strong> Port Elizabeth, Eastern Cape<br><br>
+                        Thanks to our swift response and coordination with local authorities, we successfully averted a potential drought crisis by providing essential water supplies to affected areas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .events, .event, .disaster-averted {
+        margin-bottom: 20px;
+    }
+
+    .event-image {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .event, .disaster-averted {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    h2 {
+        color: #007bff;
+    }
+</style>

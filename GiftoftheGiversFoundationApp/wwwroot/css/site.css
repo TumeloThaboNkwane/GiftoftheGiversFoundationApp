@@ -1,0 +1,65 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+footer {
+    background-color: #343a40; /* Dark background */
+    color: #ffffff; /* White text for better contrast */
+}
+footer a {
+        color: #ffffff; /* White links */
+        text-decoration: none;
+    }
+ footer a:hover {
+            color: #ccc; /* Lighten links on hover */
+        }
+ footer ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+footer ul li {
+            padding-left: 10px;
+        }
+
+
+.card {
+    border: none;
+    background-color: #f8f9fa; /* Keep this light background */
+}
+
+.card-title {
+    color: #007bff; /* Bootstrap primary color */
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+body {
+    background-color: white; /* Light background color */
+}
+
+h2 {
+    color: #007bff; /* Bootstrap primary color */
+}
+
+

@@ -1,0 +1,17 @@
+﻿@model GiftoftheGiversFoundationApp.Models.NewsletterSignup
+
+<h2>Subscribe to Our Newsletter</h2>
+
+<form method="post" asp-action="SubscribeToNewsletter">
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="Email" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Subscribe</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+
